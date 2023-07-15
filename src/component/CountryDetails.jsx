@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import countryData from './AllData';
 import './Style.css';
 import AOS  from 'aos';
@@ -14,7 +14,6 @@ function CountryDetails({ country, sliderAnimate, closeButton, handleBorderCount
             delay: 100
         })
     }, []);
-    const [selectedDetails, setSelectedDetails] = useState();
 
     if (!country) {
         return null;
