@@ -1,5 +1,5 @@
 import './Style.css';
-import React, { useState } from 'react';
+import React from 'react';
 import {MdOutlineNightlight, MdOutlineLightMode} from "react-icons/md"
 
 
