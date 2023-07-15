@@ -5,6 +5,7 @@ import SearchInput from './SearchInput';
 import CountryCards from './CountryCards';
 import CountryDetails from './CountryDetails';
 import './Style.css';
+import ScrollToTop from './ScrollToTop';
 
 
 function Home() {
@@ -62,6 +63,9 @@ function Home() {
       }
       {
         toggle ? (<CountryDetails sliderAnimate={sliderAnimate} handleBorderCountryClick={handleChangeCountryDetails} country={selectedCountry} closeButton={handleCloseButtonClick} />) : (<CountryCards countries={filteredCountries} onClick={handleCountryClick} />)
+      }
+      {
+        toggle ? "" : (<ScrollToTop/>)
       }
     </div>
   );
