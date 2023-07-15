@@ -5,8 +5,7 @@ import SearchInput from './SearchInput';
 import CountryCards from './CountryCards';
 import CountryDetails from './CountryDetails';
 import './Style.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 
 function Home() {
   const [countries, setCountries] = useState([]);
@@ -16,15 +15,12 @@ function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [sliderAnimate, setSliderAnimate] = useState(false);
+  const [view, setview] = useState(false);
+
 
 
   useEffect(() => {
     setCountries(countryData)
-    AOS.init({
-      duration: 1000,
-      easing: 'ease',
-      delay: 100
-    })
   }, [])
 
   const handleSearchInput = e => setSearchInput(e.target.value);
@@ -36,13 +32,13 @@ function Home() {
   const handleChangeCountryDetails = (borderCountry) => {
     setSelectedCountry(borderCountry);
     setSliderAnimate(true)
-    setTimeout(() => {
-      AOS.refresh();
-    }, 0);
   } // event handler for border country click
 
 
-  const handleToggleMode = () => setIsDarkMode(prev => !prev);
+  const handleToggleMode = () => {
+    setIsDarkMode(prev => !prev);
+    setview(!view)
+  } ;
   const handleCloseButtonClick = () => {
     setToggle(false)
   };
@@ -60,7 +56,7 @@ function Home() {
 
   return (
     <div className={`app ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-      <Navigation handle={handleToggleMode} />
+      <Navigation view={view} handle={handleToggleMode} />
       {
         toggle ? "" : (<SearchInput value={searchInput} onChange={handleSearchInput} selectValue={selectInput} onSelectChange={handleSelectInput} />)
       }

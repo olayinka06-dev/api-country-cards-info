@@ -61,9 +61,10 @@ nav {
     align-items: center;
     color: var(--contentcolor);
     padding: 0 50px;
-    /* z-index: 1000; */
+    z-index: 1000;
     position: sticky;
     top: 0;
+    box-shadow: 0px 4px 4px var(--border);
 }
 
 .input-field {
@@ -79,9 +80,10 @@ nav {
 
 .first input {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border-radius: 10px;
     border: none;
+    outline: none;
     background-color: var(--content);
     color: var(--contentcolor);
     box-shadow: 0px 4px 4px var(--border);
@@ -96,12 +98,13 @@ nav {
 select {
     border-radius: 10px;
     border: none;
-    padding: 12px;
+    padding: 14px;
     width: 150px;
     text-align: left !important;
     background-color: var(--content);
     color: var(--contentcolor);
     box-shadow: 0px 4px 4px var(--border);
+    outline: none;
 }
 
 option {
@@ -122,12 +125,17 @@ option {
     flex-direction: column;
     box-shadow: 0px 4px 4px var(--border);
     background-color: var(--container);
+    border-radius: 20px;
 }
-
+.field{
+    border-radius: 20px;
+}
 img {
     width: 100%;
     height: 30vh;
     cursor: pointer;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .content {
@@ -136,6 +144,8 @@ img {
     flex-direction: column;
     padding: 30px;
     gap: 20px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     background-color: var(--content);
     color: var(--contentcolor);
 }

@@ -1,18 +1,18 @@
 import './Style.css';
-import React from 'react';
-import {MdOutlineNightlight} from "react-icons/md"
-// , MdOutlineLightMode
+import React, { useState } from 'react';
+import {MdOutlineNightlight, MdOutlineLightMode} from "react-icons/md"
 
 
-function Navigation({ handle }) {
 
-  // const [view, setview] = useState(false);
+function Navigation({ handle, view }) {
+
 
   return (
     <nav>
       <h2>Where in the World?</h2>
-      <button onClick={handle}><MdOutlineNightlight className='icon'/> Dark Mode</button>
-                {/* view ? <button onClick={handle}><MdOutlineLightMode className='icon'/>Light Mode</button> : */}
+      {
+          view ? <button onClick={handle}><MdOutlineLightMode className='icon'/>Light Mode</button> : <button onClick={handle}><MdOutlineNightlight className='icon'/> Dark Mode</button>
+      }
       
     </nav>
   );
