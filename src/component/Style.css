@@ -127,9 +127,11 @@ option {
     background-color: var(--container);
     border-radius: 20px;
 }
-.field{
+
+.field {
     border-radius: 20px;
 }
+
 img {
     width: 100%;
     height: 30vh;
@@ -172,7 +174,6 @@ img {
     padding: 20px 80px;
     background-color: var(--mainbody);
     width: 100%;
-    /* min-height: 80vh !important; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -180,19 +181,23 @@ img {
     gap: 40px;
     animation: detailsanimate .6s ease-in-out;
 }
-.slider{
+
+.slider {
     animation: detailsanimate .6s ease-in-out;
 }
+
 @keyframes detailsanimate {
-    0%{
+    0% {
         display: none;
         opacity: 0;
     }
-    1%{
+
+    1% {
         display: block;
         opacity: 0;
     }
-    100%{
+
+    100% {
         display: flex;
         opacity: 1;
     }
@@ -220,15 +225,17 @@ img {
     flex-direction: row;
     gap: 30px;
     animation: detailsanimate .6s ease-in-out;
+    padding: 30px 0;
 }
 
 .picture {
     width: 100%;
-    height: 50vh;
+    height: 100%;
 }
 
 .picture img {
-    height: 50vh;
+    height: 100%;
+    border-radius: 0;
 }
 
 .content-after {
@@ -236,7 +243,10 @@ img {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    height: 50vh;
+    height: 100%;
+}
+.content-after h3{
+    color: var(--contentcolor);
 }
 
 .details-wrapper h2 {
@@ -282,7 +292,8 @@ span {
     /* align-items: center; */
     gap: 10px;
 }
-.borders{
+
+.borders {
     color: var(--contentcolor2);
     background-color: var(--content);
     padding: 10px 7px;
@@ -298,28 +309,46 @@ span {
         grid-template-columns: repeat(3, 1fr);
         padding: 20px 40px;
     }
-    .details-wrapper{
+
+    nav h2 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .enclosure {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px 30px 30px 30px;
+    }
+
+    .details-wrapper {
         padding-left: 20px;
         padding-right: 20px;
-        padding-bottom: 40px;
+        padding-bottom: 10px;
     }
+
     .input-field {
         flex-direction: column;
         gap: 30px;
+        padding: 10px 30px;
     }
-    .about-after{
+
+    .about-after {
         flex-direction: column;
     }
+
     .card {
         flex-direction: column;
         padding-bottom: 37px;
     }
-    .base{
+
+    .base {
         flex-direction: column;
         width: 100% !important;
         margin: 0;
         padding-top: 25px;
     }
+
     .second {
         justify-content: flex-start;
     }
@@ -328,19 +357,8 @@ span {
         padding: 0 10px;
         z-index: 1000;
     }
-
-}
-
-@media screen and (max-width: 950px) {
-    .enclosure {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 20px 30px;
-    }
-    .input-field{
-        padding: 20px 30px;
-    }
-    nav h2{
-        font-size: 20px;
+    .base{
+        align-items: flex-start;
     }
 }
 
@@ -348,7 +366,8 @@ span {
     .enclosure {
         grid-template-columns: repeat(1, 1fr);
     }
-    nav h2{
+
+    nav h2 {
         font-size: 18px;
     }
 }
