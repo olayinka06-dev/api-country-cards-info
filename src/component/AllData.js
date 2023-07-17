@@ -11033,6 +11033,7 @@ const countryData = [
       "demonym": "Niuean",
       "area": 260,
       "timezones": ["UTC-11:00"],
+      "borders": [""],
       "nativeName": "Niuē",
       "numericCode": "570",
       "flags": {
@@ -11094,6 +11095,7 @@ const countryData = [
       "demonym": "Norfolk Islander",
       "area": 36,
       "timezones": ["UTC+11:30"],
+      "borders": [""],
       "nativeName": "Norfolk Island",
       "numericCode": "574",
       "flags": {
@@ -11210,6 +11212,7 @@ const countryData = [
       "area": 464,
       "timezones": ["UTC+10:00"],
       "nativeName": "Northern Mariana Islands",
+      "borders": [""],
       "numericCode": "580",
       "flags": {
         "svg": "https://flagcdn.com/mp.svg",
@@ -11484,6 +11487,7 @@ const countryData = [
       "demonym": "Palauan",
       "area": 459,
       "timezones": ["UTC+09:00"],
+      "borders": [""],
       "nativeName": "Palau",
       "numericCode": "585",
       "flags": {
@@ -11896,6 +11900,7 @@ const countryData = [
       "area": 342353,
       "gini": 42.3,
       "timezones": ["UTC+08:00"],
+      "borders": [""],
       "nativeName": "Pilipinas",
       "numericCode": "608",
       "flags": {
@@ -11955,6 +11960,7 @@ const countryData = [
       "demonym": "Pitcairn Islander",
       "area": 47,
       "timezones": ["UTC-08:00"],
+      "borders": [""],
       "nativeName": "Pitcairn Islands",
       "numericCode": "612",
       "flags": {
@@ -12143,6 +12149,7 @@ const countryData = [
       "demonym": "Puerto Rican",
       "area": 8870,
       "timezones": ["UTC-04:00"],
+      "borders": [""],
       "nativeName": "Puerto Rico",
       "numericCode": "630",
       "flags": {
@@ -12332,6 +12339,7 @@ const countryData = [
       "latlng": [-21.15, 55.5],
       "demonym": "French",
       "timezones": ["UTC+04:00"],
+      "borders": [""],
       "nativeName": "La Réunion",
       "numericCode": "638",
       "flags": {
@@ -12641,6 +12649,7 @@ const countryData = [
       "demonym": "Saint Barthélemy Islander",
       "area": 21,
       "timezones": ["UTC-04:00"],
+      "borders": [""],
       "nativeName": "Saint-Barthélemy",
       "numericCode": "652",
       "flags": {
@@ -12692,6 +12701,7 @@ const countryData = [
       "latlng": [-15.95, -5.7],
       "demonym": "Saint Helenian",
       "timezones": ["UTC+00:00"],
+      "borders": [""],
       "nativeName": "Saint Helena",
       "numericCode": "654",
       "flags": {
@@ -12757,6 +12767,7 @@ const countryData = [
       "demonym": "Kittian and Nevisian",
       "area": 261,
       "timezones": ["UTC-04:00"],
+      "borders": [""],
       "nativeName": "Saint Kitts and Nevis",
       "numericCode": "659",
       "flags": {
@@ -12822,6 +12833,7 @@ const countryData = [
       "area": 616,
       "gini": 51.2,
       "timezones": ["UTC-04:00"],
+      "borders": [""],
       "nativeName": "Saint Lucia",
       "numericCode": "662",
       "flags": {
@@ -12958,6 +12970,7 @@ const countryData = [
       "demonym": "French",
       "area": 242,
       "timezones": ["UTC-03:00"],
+      "borders": [""],
       "nativeName": "Saint-Pierre-et-Miquelon",
       "numericCode": "666",
       "flags": {
@@ -13010,6 +13023,7 @@ const countryData = [
       "demonym": "Saint Vincentian",
       "area": 389,
       "timezones": ["UTC-04:00"],
+      "borders": [""],
       "nativeName": "Saint Vincent and the Grenadines",
       "numericCode": "670",
       "flags": {
@@ -13079,6 +13093,7 @@ const countryData = [
       "area": 2842,
       "gini": 38.7,
       "timezones": ["UTC+13:00"],
+      "borders": [""],
       "nativeName": "Samoa",
       "numericCode": "882",
       "flags": {
@@ -13201,6 +13216,7 @@ const countryData = [
       "area": 964,
       "gini": 56.3,
       "timezones": ["UTC"],
+      "borders": [""],
       "nativeName": "São Tomé e Príncipe",
       "numericCode": "678",
       "flags": {
@@ -13477,6 +13493,7 @@ const countryData = [
       "area": 452,
       "gini": 32.1,
       "timezones": ["UTC+04:00"],
+      "borders": [""],
       "nativeName": "Seychelles",
       "numericCode": "690",
       "flags": {
@@ -13617,6 +13634,7 @@ const countryData = [
       "demonym": "Singaporean",
       "area": 710,
       "timezones": ["UTC+08:00"],
+      "borders": [""],
       "nativeName": "Singapore",
       "numericCode": "702",
       "flags": {
@@ -13876,6 +13894,7 @@ const countryData = [
       "area": 28896,
       "gini": 37.1,
       "timezones": ["UTC+11:00"],
+      "borders": [""],
       "nativeName": "Solomon Islands",
       "numericCode": "090",
       "flags": {
@@ -14139,6 +14158,7 @@ const countryData = [
       "latlng": [-54.5, -37],
       "demonym": "South Georgia and the South Sandwich Islander",
       "timezones": ["UTC-02:00"],
+      "borders": [""],
       "nativeName": "South Georgia",
       "numericCode": "239",
       "flags": {
@@ -14625,6 +14645,7 @@ const countryData = [
       "demonym": "Norwegian",
       "timezones": ["UTC+01:00"],
       "nativeName": "Svalbard og Jan Mayen",
+      "borders": [""],
       "numericCode": "744",
       "flags": {
         "svg": "https://flagcdn.com/sj.svg",
@@ -14978,6 +14999,7 @@ const countryData = [
       "demonym": "Taiwanese",
       "area": 36193,
       "timezones": ["UTC+08:00"],
+      "borders": [""],
       "nativeName": "臺灣",
       "numericCode": "158",
       "flags": {
@@ -15378,6 +15400,7 @@ const countryData = [
       "demonym": "Tokelauan",
       "area": 12,
       "timezones": ["UTC+13:00"],
+      "borders": [""],
       "nativeName": "Tokelau",
       "numericCode": "772",
       "flags": {
@@ -15431,6 +15454,7 @@ const countryData = [
       "area": 747,
       "gini": 37.6,
       "timezones": ["UTC+13:00"],
+      "borders": [""],
       "nativeName": "Tonga",
       "numericCode": "776",
       "flags": {
@@ -15491,6 +15515,7 @@ const countryData = [
       "area": 5130,
       "gini": 40.3,
       "timezones": ["UTC-04:00"],
+      "borders": [""],
       "nativeName": "Trinidad and Tobago",
       "numericCode": "780",
       "flags": {
@@ -15757,6 +15782,7 @@ const countryData = [
       "demonym": "Turks and Caicos Islander",
       "area": 948,
       "timezones": ["UTC-04:00"],
+      "borders": [""],
       "nativeName": "Turks and Caicos Islands",
       "numericCode": "796",
       "flags": {
@@ -15810,6 +15836,7 @@ const countryData = [
       "area": 26,
       "gini": 39.1,
       "timezones": ["UTC+12:00"],
+      "borders": [""],
       "nativeName": "Tuvalu",
       "numericCode": "798",
       "flags": {
@@ -16349,6 +16376,7 @@ const countryData = [
       "area": 12189,
       "gini": 37.6,
       "timezones": ["UTC+11:00"],
+      "borders": [""],
       "nativeName": "Vanuatu",
       "numericCode": "548",
       "flags": {
@@ -16555,6 +16583,7 @@ const countryData = [
       "demonym": "Wallis and Futuna Islander",
       "area": 142,
       "timezones": ["UTC+12:00"],
+      "borders": [""],
       "nativeName": "Wallis et Futuna",
       "numericCode": "876",
       "flags": {
