@@ -17,6 +17,7 @@ function Home() {
   const [toggle, setToggle] = useState(false);
   const [sliderAnimate, setSliderAnimate] = useState(false);
   const [view, setview] = useState(false);
+  const [page, setPage] = useState(1);
 
 
 
@@ -35,24 +36,32 @@ function Home() {
     setSliderAnimate(true)
   } // event handler for border country click
 
+  const handleShowMore = () => setPage(page + 1);
+
+  const displayedCountries = countries.slice(0, page * 15);
+
+
 
   const handleToggleMode = () => {
     setIsDarkMode(prev => !prev);
     setview(!view)
-  } ;
+  };
   const handleCloseButtonClick = () => {
     setToggle(false)
   };
 
-  const filteredCountries = countries.filter(country => {
-    if (searchInput !== '' && !country.name.toLowerCase().includes(searchInput.toLowerCase())) {
-      return false;
-    }
-    if (selectInput !== '' && country.region !== selectInput) {
-      return false;
-    }
-    return true;
-  });
+  useEffect(() => {
+    const filteredCountries = countryData.filter(country => {
+      if (searchInput !== '' && !country.name.toLowerCase().includes(searchInput.toLowerCase())) {
+        return false;
+      }
+      if (selectInput !== '' && country.region !== selectInput) {
+        return false;
+      }
+      return true;
+    });
+    setCountries(filteredCountries);
+  }, [searchInput, selectInput]);
 
 
   return (
@@ -62,13 +71,20 @@ function Home() {
         toggle ? "" : (<SearchInput value={searchInput} onChange={handleSearchInput} selectValue={selectInput} onSelectChange={handleSelectInput} />)
       }
       {
-        toggle ? (<CountryDetails sliderAnimate={sliderAnimate} handleBorderCountryClick={handleChangeCountryDetails} country={selectedCountry} closeButton={handleCloseButtonClick} />) : (<CountryCards countries={filteredCountries} onClick={handleCountryClick} />)
+        toggle ? (<CountryDetails sliderAnimate={sliderAnimate} handleBorderCountryClick={handleChangeCountryDetails} country={selectedCountry} closeButton={handleCloseButtonClick} />) : (<CountryCards countries={displayedCountries} onClick={handleCountryClick} />)
       }
+      {displayedCountries.length < countries.length && (
+        <button onClick={handleShowMore}>Show More</button>
+      )}
+      {/*  */}
+      {/* <CountryCards countries={filteredCountries} onClick={handleCountryClick} /> */}
       {
-        toggle ? "" : (<ScrollToTop/>)
+        toggle ? "" : (<ScrollToTop />)
       }
     </div>
   );
 }
 
 export default Home;
+
+
