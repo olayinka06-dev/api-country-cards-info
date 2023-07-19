@@ -74,10 +74,10 @@ function Home() {
         toggle ? (<CountryDetails sliderAnimate={sliderAnimate} handleBorderCountryClick={handleChangeCountryDetails} country={selectedCountry} closeButton={handleCloseButtonClick} />) : (<CountryCards countries={displayedCountries} onClick={handleCountryClick} />)
       }
       {displayedCountries.length < countries.length && (
-        <button onClick={handleShowMore}>Show More</button>
+        <div className="">
+          <button onClick={handleShowMore}>Show More</button>
+        </div>
       )}
-      {/*  */}
-      {/* <CountryCards countries={filteredCountries} onClick={handleCountryClick} /> */}
       {
         toggle ? "" : (<ScrollToTop />)
       }
