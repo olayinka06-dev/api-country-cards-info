@@ -291,11 +291,9 @@ span {
 }
 
 .border-wrapper {
-    /* width: 100%; */
     background-color: var(--mainbody);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* align-items: center; */
     gap: 10px;
 }
 
@@ -308,6 +306,16 @@ span {
     font-size: 13px;
     font-weight: 600;
     width: 100%;
+    box-shadow: 0px 2px 8px rgba(0,0,0,.2);
+}
+.show-more{
+    color: var(--detailcontent);
+    background-color: var(--content);
+    padding: 10px 27px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
     box-shadow: 0px 2px 8px rgba(0,0,0,.2);
 }
 

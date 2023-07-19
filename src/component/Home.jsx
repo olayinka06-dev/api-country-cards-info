@@ -75,7 +75,7 @@ function Home() {
       }
       {displayedCountries.length < countries.length && (
         <div className="">
-          <button onClick={handleShowMore}>Show More</button>
+          <button className='show-more' onClick={handleShowMore}>Show More</button>
         </div>
       )}
       {
