@@ -1,17 +1,16 @@
-import { useEffect, useState } from 'react';
-import countryData from './AllData';
-import Navigation from './Navigation';
-import SearchInput from './SearchInput';
-import CountryCards from './CountryCards';
-import CountryDetails from './CountryDetails';
-import './Style.css';
-import ScrollToTop from './ScrollToTop';
-
+import { useEffect, useState } from "react";
+import countryData from "./AllData";
+import Navigation from "./Navigation";
+import SearchInput from "./SearchInput";
+import CountryCards from "./CountryCards";
+import CountryDetails from "./CountryDetails";
+import "./Style.css";
+import ScrollToTop from "./ScrollToTop";
 
 function Home() {
   const [countries, setCountries] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
-  const [selectInput, setSelectInput] = useState('');
+  const [searchInput, setSearchInput] = useState("");
+  const [selectInput, setSelectInput] = useState("");
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [toggle, setToggle] = useState(false);
@@ -19,43 +18,42 @@ function Home() {
   const [view, setview] = useState(false);
   const [page, setPage] = useState(1);
 
-
-
   useEffect(() => {
-    setCountries(countryData)
-  }, [])
+    setCountries(countryData);
+  }, []);
 
-  const handleSearchInput = e => setSearchInput(e.target.value);
-  const handleSelectInput = e => setSelectInput(e.target.value);
+  const handleSearchInput = (e) => setSearchInput(e.target.value);
+  const handleSelectInput = (e) => setSelectInput(e.target.value);
   const handleCountryClick = (country) => {
     setSelectedCountry(country);
-    setToggle(true)
+    setToggle(true);
   };
   const handleChangeCountryDetails = (borderCountry) => {
     setSelectedCountry(borderCountry);
-    setSliderAnimate(true)
-  } // event handler for border country click
+    setSliderAnimate(true);
+  }; // event handler for border country click
 
   const handleShowMore = () => setPage(page + 1);
 
   const displayedCountries = countries.slice(0, page * 15);
 
-
-
   const handleToggleMode = () => {
-    setIsDarkMode(prev => !prev);
-    setview(!view)
+    setIsDarkMode((prev) => !prev);
+    setview(!view);
   };
   const handleCloseButtonClick = () => {
-    setToggle(false)
+    setToggle(false);
   };
 
   useEffect(() => {
-    const filteredCountries = countryData.filter(country => {
-      if (searchInput !== '' && !country.name.toLowerCase().includes(searchInput.toLowerCase())) {
+    const filteredCountries = countryData.filter((country) => {
+      if (
+        searchInput !== "" &&
+        !country.name.toLowerCase().includes(searchInput.toLowerCase())
+      ) {
         return false;
       }
-      if (selectInput !== '' && country.region !== selectInput) {
+      if (selectInput !== "" && country.region !== selectInput) {
         return false;
       }
       return true;
@@ -63,28 +61,46 @@ function Home() {
     setCountries(filteredCountries);
   }, [searchInput, selectInput]);
 
-
   return (
-    <div className={`app ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`app ${isDarkMode ? "dark-mode" : "light-mode"}`}>
       <Navigation view={view} handle={handleToggleMode} />
-      {
-        toggle ? "" : (<SearchInput value={searchInput} onChange={handleSearchInput} selectValue={selectInput} onSelectChange={handleSelectInput} />)
-      }
-      {
-        toggle ? (<CountryDetails sliderAnimate={sliderAnimate} handleBorderCountryClick={handleChangeCountryDetails} country={selectedCountry} closeButton={handleCloseButtonClick} />) : (<CountryCards countries={displayedCountries} onClick={handleCountryClick} />)
-      }
-      {displayedCountries.length < countries.length && (
-        <div className="">
-          <button className='show-more' onClick={handleShowMore}>Show More</button>
-        </div>
+      {toggle ? (
+        ""
+      ) : (
+        <SearchInput
+          value={searchInput}
+          onChange={handleSearchInput}
+          selectValue={selectInput}
+          onSelectChange={handleSelectInput}
+        />
+      )}
+      {toggle ? (
+        <CountryDetails
+          sliderAnimate={sliderAnimate}
+          handleBorderCountryClick={handleChangeCountryDetails}
+          country={selectedCountry}
+          closeButton={handleCloseButtonClick}
+        />
+      ) : (
+        <CountryCards
+          countries={displayedCountries}
+          onClick={handleCountryClick}
+        />
       )}
       {
-        toggle ? "" : (<ScrollToTop />)
+        !toggle && (
+          displayedCountries.length < countries.length && (
+            <div className="item-center">
+              <button className="show-more" onClick={handleShowMore}>
+                Show More
+              </button>
+            </div>
+          )
+        )
       }
+      {toggle ? "" : <ScrollToTop />}
     </div>
   );
 }
 
 export default Home;
-
-
