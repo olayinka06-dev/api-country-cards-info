@@ -32,8 +32,8 @@ function Home() {
 
     if (countryCardRefs.current[country.alpha3Code]) {
       countryCardRefs.current[country.alpha3Code].scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+        behavior: "smooth",
+        block: "start",
       });
     }
 
@@ -41,7 +41,7 @@ function Home() {
       top: 0,
       behavior: "smooth",
     });
-    setToggle(true);
+    // setToggle(true);
   };
   const handleChangeCountryDetails = (borderCountry) => {
     setSelectedCountry(borderCountry);
