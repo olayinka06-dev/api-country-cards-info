@@ -26,11 +26,20 @@ function Home() {
   const handleSelectInput = (e) => setSelectInput(e.target.value);
   const handleCountryClick = (country) => {
     setSelectedCountry(country);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     setToggle(true);
   };
   const handleChangeCountryDetails = (borderCountry) => {
     setSelectedCountry(borderCountry);
     setSliderAnimate(true);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }; // event handler for border country click
 
   const handleShowMore = () => setPage(page + 1);
@@ -87,17 +96,13 @@ function Home() {
           onClick={handleCountryClick}
         />
       )}
-      {
-        !toggle && (
-          displayedCountries.length < countries.length && (
-            <div className="item-center">
-              <button className="show-more" onClick={handleShowMore}>
-                Show More
-              </button>
-            </div>
-          )
-        )
-      }
+      {!toggle && displayedCountries.length < countries.length && (
+        <div className="item-center">
+          <button className="show-more" onClick={handleShowMore}>
+            Show More
+          </button>
+        </div>
+      )}
       {toggle ? "" : <ScrollToTop />}
     </div>
   );

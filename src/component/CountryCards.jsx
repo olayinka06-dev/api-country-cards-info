@@ -7,9 +7,10 @@ import 'aos/dist/aos.css';
 function CountryCards({ countries, onClick }) {
     useEffect(() => {
         AOS.init({
-            duration: 1000,
+            duration: 1500,
             easing: 'ease',
-            delay: 100
+            delay: 500,
+            once: true
         })
     }, []);
     return (

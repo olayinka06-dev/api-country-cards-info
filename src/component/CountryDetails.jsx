@@ -9,9 +9,10 @@ function CountryDetails({ country, sliderAnimate, closeButton, handleBorderCount
 
     useEffect(() => {
         AOS.init({
-            duration: 1000,
+            duration: 1500,
             easing: 'ease',
-            delay: 100
+            delay: 500,
+            once: true
         })
     }, []);
 
