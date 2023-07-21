@@ -4,7 +4,7 @@ import AOS  from 'aos';
 import 'aos/dist/aos.css';
 
 
-function CountryCards({ countries, onClick }) {
+function CountryCards({ countries, onClick, countryCardRefs }) {
     useEffect(() => {
         AOS.init({
             duration: 1500,
@@ -16,7 +16,7 @@ function CountryCards({ countries, onClick }) {
     return (
         <div className="enclosure">
             {countries.map(country => (
-                <div data-aos="fade-up" className="container" key={country.alpha3Code} onClick={() => onClick(country)}>
+                <div data-aos="fade-up" ref={el => (countryCardRefs.current[country.alpha3Code] = el)} className="container" key={country.alpha3Code} onClick={() => onClick(country)}>
                     <div className="field">
                         <img src={country.flags.png} alt={country.flags.png} />
                         <div className="content">
