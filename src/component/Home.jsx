@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import countryData from "./AllData";
 import Navigation from "./Navigation";
 import SearchInput from "./SearchInput";
@@ -18,30 +18,19 @@ function Home() {
   const [view, setview] = useState(false);
   const [page, setPage] = useState(1);
 
-  const countryCardRefs = useRef({});
-
   useEffect(() => {
     setCountries(countryData);
   }, []);
 
   const handleSearchInput = (e) => setSearchInput(e.target.value);
   const handleSelectInput = (e) => setSelectInput(e.target.value);
-
   const handleCountryClick = (country) => {
     setSelectedCountry(country);
-
-    if (countryCardRefs.current[country.alpha3Code]) {
-      countryCardRefs.current[country.alpha3Code].scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-    // setToggle(true);
+    setToggle(true);
   };
   const handleChangeCountryDetails = (borderCountry) => {
     setSelectedCountry(borderCountry);
@@ -63,7 +52,6 @@ function Home() {
   };
   const handleCloseButtonClick = () => {
     setToggle(false);
-    setSelectedCountry(null);
   };
 
   useEffect(() => {
@@ -105,7 +93,6 @@ function Home() {
       ) : (
         <CountryCards
           countries={displayedCountries}
-          countryCardRefs={countryCardRefs}
           onClick={handleCountryClick}
         />
       )}
