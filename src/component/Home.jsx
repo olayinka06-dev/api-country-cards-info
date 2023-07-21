@@ -63,6 +63,7 @@ function Home() {
   };
   const handleCloseButtonClick = () => {
     setToggle(false);
+    setSelectedCountry(null);
   };
 
   useEffect(() => {
