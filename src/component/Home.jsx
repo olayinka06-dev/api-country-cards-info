@@ -52,7 +52,13 @@ function Home() {
 
   const handleCloseButtonClick = () => {
     setToggle(false);
+    setTimeout(() => {
+      setSelectedCountry(null);
+      setToggle(false);
+    }, 1500);
   };
+
+
 
   useEffect(() => {
     const filteredCountries = countryData.filter((country) => {
