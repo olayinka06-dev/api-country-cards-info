@@ -12,7 +12,6 @@ function CountryDetails({ country, closeButton, handleBorderCountryClick }) {
             duration: 1500,
             easing: 'ease',
             delay: 500,
-            once: true
         })
     }, []);
 

@@ -25,10 +25,10 @@ function Home() {
   const handleSelectInput = (e) => setSelectInput(e.target.value);
   const handleCountryClick = (country) => {
     setSelectedCountry(country);
-    // window.scrollTo({
-    //   top: 0,
-    //   behavior: "smooth",
-    // });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     
     setToggle(true);
   };
