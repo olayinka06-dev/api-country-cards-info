@@ -5,7 +5,7 @@ import AOS  from 'aos';
 import 'aos/dist/aos.css';
 
 
-function CountryDetails({ country, sliderAnimate, closeButton, handleBorderCountryClick }) {
+function CountryDetails({ country, closeButton, handleBorderCountryClick }) {
 
     useEffect(() => {
         AOS.init({
@@ -24,7 +24,7 @@ function CountryDetails({ country, sliderAnimate, closeButton, handleBorderCount
 
     return (
         <>
-            <div className={`details-wrapper ${sliderAnimate ? "slider" : ""}`}>
+            <div className={`details-wrapper`}>
                 <div className="btn-wrapper">
                     <button className='close-button' onClick={closeButton}>Close</button>
                 </div>

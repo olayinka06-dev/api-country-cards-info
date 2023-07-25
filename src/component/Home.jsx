@@ -14,7 +14,6 @@ function Home() {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const [sliderAnimate, setSliderAnimate] = useState(false);
   const [view, setview] = useState(false);
   const [page, setPage] = useState(1);
 
@@ -26,15 +25,16 @@ function Home() {
   const handleSelectInput = (e) => setSelectInput(e.target.value);
   const handleCountryClick = (country) => {
     setSelectedCountry(country);
+    
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+
     setToggle(true);
   };
   const handleChangeCountryDetails = (borderCountry) => {
     setSelectedCountry(borderCountry);
-    setSliderAnimate(true);
 
     window.scrollTo({
       top: 0,
@@ -50,6 +50,7 @@ function Home() {
     setIsDarkMode((prev) => !prev);
     setview(!view);
   };
+
   const handleCloseButtonClick = () => {
     setToggle(false);
   };
@@ -85,7 +86,6 @@ function Home() {
       )}
       {toggle ? (
         <CountryDetails
-          sliderAnimate={sliderAnimate}
           handleBorderCountryClick={handleChangeCountryDetails}
           country={selectedCountry}
           closeButton={handleCloseButtonClick}
