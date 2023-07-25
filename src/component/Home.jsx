@@ -52,10 +52,8 @@ function Home() {
 
   const handleCloseButtonClick = () => {
     setToggle(false);
-    setTimeout(() => {
-      setSelectedCountry(null);
-      setToggle(false);
-    }, 1500);
+    setSelectedCountry(null);
+    setToggle(false);
   };
 
 
