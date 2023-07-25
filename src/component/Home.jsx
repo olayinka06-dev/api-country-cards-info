@@ -23,9 +23,10 @@ function Home() {
 
   const handleSearchInput = (e) => setSearchInput(e.target.value);
   const handleSelectInput = (e) => setSelectInput(e.target.value);
+
   const handleCountryClick = (country) => {
     setSelectedCountry(country);
-    
+
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -33,6 +34,29 @@ function Home() {
 
     setToggle(true);
   };
+
+
+  useEffect(() => {
+    const maxWidth = 950;
+
+    const handleResize = () => {
+      if (window.innerWidth <= maxWidth) {
+        handleCountryClick();
+      }
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener to window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup function to remove event listener when the component unmounts or not needed anymore
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const handleChangeCountryDetails = (borderCountry) => {
     setSelectedCountry(borderCountry);
 
