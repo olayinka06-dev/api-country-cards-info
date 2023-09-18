@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useCoutryCardContext } from "./provider/Context";
 
 function CountryCards({ countries, onClick }) {
+  const { countriesData } = useCoutryCardContext();
   useEffect(() => {
     AOS.init({
       duration: 1500,
@@ -13,12 +15,12 @@ function CountryCards({ countries, onClick }) {
   }, []);
   return (
     <div className="w-full grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-[40px] gap-y-[50px] py-[30px] md:px-[40px] px-[30px] lg:px-[50px]">
-      {countries.map((country) => (
+      {countriesData.countries.map((country) => (
         <div
           data-aos="fade-up"
           className="flex flex-col rounded-[20px] shadow-xl"
           key={country.alpha3Code}
-          onClick={() => onClick(country)}
+          onClick={() => countriesData.handleCountryClick(country)}
         >
           <div className="rounded-[20px]">
             <img

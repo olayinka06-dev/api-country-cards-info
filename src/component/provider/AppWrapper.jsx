@@ -82,6 +82,7 @@ const AppWrapper = () => {
     view,
     selectInput,
     searchInput,
+    countries,
   };
 
   return (

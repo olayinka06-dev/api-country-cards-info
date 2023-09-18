@@ -3,8 +3,11 @@ import countryData from "./AllData";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { MdArrowBack } from "react-icons/md";
+import { useCoutryCardContext } from "./provider/Context";
 
-function CountryDetails({ country, closeButton, handleBorderCountryClick }) {
+function CountryDetails() {
+  const { countriesData } = useCoutryCardContext();
+  
   useEffect(() => {
     AOS.init({
       duration: 1500,
@@ -13,7 +16,7 @@ function CountryDetails({ country, closeButton, handleBorderCountryClick }) {
     });
   }, []);
 
-  if (!country) {
+  if (!countriesData.selectedCountry) {
     return null;
   }
 
@@ -25,7 +28,7 @@ function CountryDetails({ country, closeButton, handleBorderCountryClick }) {
         <div className="w-full flex flex-col items-start justify-start">
           <button
             className="bg-[var(--content)] flex items-center gap-1 text-[var(--contentcolor)] px-[25px] py-[10px] shadow-xl"
-            onClick={closeButton}
+            onClick={countriesData.handleCloseButtonClick}
           >
             <span>
               <MdArrowBack />
@@ -36,48 +39,48 @@ function CountryDetails({ country, closeButton, handleBorderCountryClick }) {
         <div className="w-full flex flex-col md:flex-row gap-[30px] py-[30px]">
           <div data-aos="fade-left" className="w-full md:w-1/2">
             <img
-              src={country.flags.png}
+              src={countriesData.selectedCountry.flags.png}
               className="h-[50vh] rounded-2xl"
-              alt={country.flags.png}
+              alt={countriesData.selectedCountry.flags.png}
             />
           </div>
           <div
             data-aos="fade-right"
             className="w-full md:w-1/2 flex flex-col gap-[10px]"
           >
-            <h3 className="text-[var(--contentcolor)]">{country.name}</h3>
+            <h3 className="text-[var(--contentcolor)]">{countriesData.selectedCountry.name}</h3>
             <div className="w-full flex flex-col md:flex-row gap-[30px] text-[var(--detailcontent)]">
               <div className="w-full flex flex-col gap-[10px]">
                 <p>
                   <span>Native Name: </span>
-                  {country.nativeName}
+                  {countriesData.selectedCountry.nativeName}
                 </p>
                 <p>
-                  <span>Population:</span> {country.population}
+                  <span>Population:</span> {countriesData.selectedCountry.population}
                 </p>
                 <p>
-                  <span>Region:</span> {country.region}
+                  <span>Region:</span> {countriesData.selectedCountry.region}
                 </p>
                 <p>
                   <span>Sub Region: </span>
-                  {country.subregion}
+                  {countriesData.selectedCountry.subregion}
                 </p>
                 <p>
-                  <span>Capital:</span> {country.capital}
+                  <span>Capital:</span> {countriesData.selectedCountry.capital}
                 </p>
               </div>
               <div className="w-full flex flex-col gap-[10px]">
                 <p>
                   <span>Top Level Domain: </span>
-                  {country.topLevelDomain}
+                  {countriesData.selectedCountry.topLevelDomain}
                 </p>
                 <p>
                   <span>Currencies: </span>
-                  {country.currencies.map((c) => c.name)}
+                  {countriesData.selectedCountry.currencies.map((c) => c.name)}
                 </p>
                 <p>
                   <span>Languages: </span>
-                  {country.languages.map((l) => l.name + " ")}
+                  {countriesData.selectedCountry.languages.map((l) => l.name + " ")}
                 </p>
               </div>
             </div>
@@ -86,7 +89,7 @@ function CountryDetails({ country, closeButton, handleBorderCountryClick }) {
                 <span>Border Countries: </span>
               </p>
               <div className="w-full md:w-auto grid grid-cols-3 gap-[10px] bg-[var(--mainbody)]">
-                {country.borders.map((borderCode) => {
+                {countriesData.selectedCountry.borders.map((borderCode) => {
                   const borderCountry = countryData.find(
                     (country) => country.alpha3Code === borderCode
                   );
@@ -94,7 +97,7 @@ function CountryDetails({ country, closeButton, handleBorderCountryClick }) {
                     return (
                       <button
                         key={borderCountry.alpha3Code}
-                        onClick={() => handleBorderCountryClick(borderCountry)}
+                        onClick={() => countriesData.handleChangeCountryDetails(borderCountry)}
                         className="text-[var(--detailcontent)] bg-[var(--content)] py-[10px] px-[7px] rounded-[8px] cursor-pointer text-[13px] font-[600] w-full shadow-xl"
                       >
                         {borderCountry.name}
