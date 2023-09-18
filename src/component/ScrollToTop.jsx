@@ -41,7 +41,7 @@ const ScrollToTop = () => {
       >
         <MdArrowUpward className="text-[20px] text-[var(--contentcolor)]" />
       </span>
-      <style jsx>{`
+      <style jsx="true">{`
             .backup{
             animation: scroll-up 4s linear infinite;
             transition: all 1s ease;

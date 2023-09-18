@@ -1,7 +1,9 @@
 import React from "react";
 import { MdOutlineNightlight, MdOutlineLightMode } from "react-icons/md";
+import { useCoutryCardContext } from "./provider/Context";
 
-function Navigation({ handleToggle, view }) {
+function Navigation() {
+  const { countriesData } = useCoutryCardContext();
   return (
     <nav className="w-full h-[10vh] flex items-center justify-between px-[20px] md:px-[50px] z-[1000] sticky top-0 shadow-xl bg-[var(--content)] text-[var(--contentcolor)]">
       <h2 className="text-[18px] md:text-[25px]">Where in the World?</h2>
@@ -16,17 +18,17 @@ function Navigation({ handleToggle, view }) {
             type="checkbox"
             id="toggleButton"
             className="sr-only"
-            checked={view}
-            onChange={handleToggle}
+            checked={countriesData.view}
+            onChange={countriesData.handleToggleMode}
           />
           <div
             className={`w-12 h-6 ${
-              view ? "bg-[rgb(3,40,91)]" : "bg-[rgb(3,40,91)]"
+              countriesData.view ? "bg-[rgb(3,40,91)]" : "bg-[rgb(3,40,91)]"
             } rounded-full transition`}
           >
             <div
               className={`absolute w-4 h-4 bg-white rounded-full top-1 left-1 transition-transform transform ${
-                view ? "translate-x-6" : "translate-x-0"
+                countriesData.view ? "translate-x-6" : "translate-x-0"
               }`}
             />
           </div>
