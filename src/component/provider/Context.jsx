@@ -16,7 +16,7 @@ export const CoutryCardContext = createContext({
     toggle: false,
     view: false,
     displayedCountries: [],
-    countries: [],
+    countries: [{}],
   },
 });
 

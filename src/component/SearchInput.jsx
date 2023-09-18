@@ -14,7 +14,8 @@ function SearchInput() {
           placeholder="Search by country name"
         />
       </div>
-      <div className="w-full md:w-1/2 flex md:justify-end justify-start">
+      <div className="w-full md:w-1/2 flex items-center justify-between">
+        <span className="m-0 md:ml-10 text-sm md:text-lg">Showing {countriesData.displayedCountries.length} Result of {countriesData.countries.length}</span>
         <select
           className="rounded-[10px] border-none p-[14px] w-[150px] text-left bg-[var(--content)] outline-none text-[var(--contentcolor)] shadow-xl"
           value={countriesData.selectInput}

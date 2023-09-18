@@ -45,3 +45,14 @@
 span {
   color: var(--detailtitle) !important;
 }
+
+::-webkit-scrollbar {
+  width: 10px; 
+} 
+::-webkit-scrollbar-track {
+  background:var(--mainbody) !important;  
+} 
+::-webkit-scrollbar-thumb {
+  background:  rgb(3,40,91); 
+  border-radius: 10px; 
+}
