@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useCoutryCardContext } from "./provider/Context";
 
-function CountryCards({ countries, onClick }) {
+function CountryCards() {
   const { countriesData } = useCoutryCardContext();
   useEffect(() => {
     AOS.init({
@@ -15,7 +15,7 @@ function CountryCards({ countries, onClick }) {
   }, []);
   return (
     <div className="w-full grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-[40px] gap-y-[50px] py-[30px] md:px-[40px] px-[30px] lg:px-[50px]">
-      {countriesData.countries.map((country) => (
+      {countriesData.displayedCountries.map((country) => (
         <div
           data-aos="fade-up"
           className="flex flex-col rounded-[20px] shadow-xl"
