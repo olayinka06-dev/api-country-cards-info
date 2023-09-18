@@ -1,56 +1,67 @@
-import React, { useState } from 'react';
-import { MdArrowUpward } from 'react-icons/md'
-import styled from 'styled-components'
+import React, { useEffect, useState } from "react";
+import { MdArrowUpward } from "react-icons/md";
 
 const ScrollToTop = () => {
-    const [showArrow, setShowArrow] = useState(false);
+  const [showArrow, setShowArrow] = useState(false);
 
-    window.addEventListener("scroll", ()=>{
-        if (document.body.scrollTop >= 100 || document.documentElement.scrollTop >= 100) {
-            setShowArrow(true)
-        }
-        else{
-            setShowArrow(false)
-        }
-    })
-    const handleScrollUp = () => {
+  useEffect(() => {
+    const scrollUp = () => {
+      if (
+        document.body.scrollTop >= 100 ||
+        document.documentElement.scrollTop >= 100
+      ) {
+        setShowArrow(true);
+      } else {
+        setShowArrow(false);
+      }
+    };
 
-       window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-       })
-    }
+    window.addEventListener("scroll", scrollUp);
+
+    return () => {
+      window.removeEventListener("scroll", scrollUp);
+    };
+  }, []);
+
+  const handleScrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
-    <ScrollUp
-     style={{visibility: `${showArrow ? "visible" : "hidden"}`, opacity: `${showArrow ? "1" : "0"}`}}
-     onClick={handleScrollUp}><MdArrowUpward/></ScrollUp>
-  )
-}
+    <div className="">
+      <span
+        className="backup p-[15px] fixed bottom-[5%] right-[4%] cursor-pointer"
+        style={{
+          visibility: `${showArrow ? "visible" : "hidden"}`,
+          opacity: `${showArrow ? "1" : "0"}`,
+        }}
+        onClick={handleScrollUp}
+      >
+        <MdArrowUpward className="text-[20px] text-[var(--contentcolor)]" />
+      </span>
+      <style jsx>{`
+            .backup{
+            animation: scroll-up 4s linear infinite;
+            transition: all 1s ease;
+          
+            
+            }
+          
+            @keyframes scroll-up {
+              0% {
+                transform: translateY(20px);
+              }
+              50% {
+                transform: translateY(0px);
+              }
+              100% {
+                transform: translateY(20px);
+              }
+        `}</style>
+    </div>
+  );
+};
 
-const ScrollUp = styled.span`
-    padding: 15px;
-    position: fixed;
-    bottom: 5%;
-    right: 4%;
-    animation: scroll-up 4s linear infinite;
-    transition: all 1s ease;
-
-    svg{
-        color: var(--contentcolor);
-        font-size: 20px;
-    }
-
-    @keyframes scroll-up {
-        0%{
-            transform: translateY(20px)
-        }
-        50%{
-            transform: translateY(0px)
-        }
-        100%{
-            transform: translateY(20px)
-        }
-    }
-`;
-
-export default ScrollToTop
+export default ScrollToTop;

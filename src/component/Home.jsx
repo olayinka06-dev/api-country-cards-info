@@ -1,11 +1,12 @@
+"use client";
 import { useEffect, useState } from "react";
 import countryData from "./AllData";
 import Navigation from "./Navigation";
 import SearchInput from "./SearchInput";
 import CountryCards from "./CountryCards";
 import CountryDetails from "./CountryDetails";
-import "./Style.css";
 import ScrollToTop from "./ScrollToTop";
+import { MdArrowDownward } from "react-icons/md";
 
 function Home() {
   const [countries, setCountries] = useState([]);
@@ -53,7 +54,6 @@ function Home() {
   const handleCloseButtonClick = () => {
     setToggle(false);
     setSelectedCountry(null);
-    setToggle(false);
   };
 
 
@@ -75,8 +75,8 @@ function Home() {
   }, [searchInput, selectInput]);
 
   return (
-    <div className={`app ${isDarkMode ? "dark-mode" : "light-mode"}`}>
-      <Navigation view={view} handle={handleToggleMode} />
+    <div className={`bg-[var(--mainbody)] ${isDarkMode ? "dark-mode" : "light-mode"}`}>
+      <Navigation view={view} handleToggle={handleToggleMode} />
       {toggle ? (
         ""
       ) : (
@@ -100,9 +100,9 @@ function Home() {
         />
       )}
       {!toggle && displayedCountries.length < countries.length && (
-        <div className="item-center">
-          <button className="show-more" onClick={handleShowMore}>
-            Show More
+        <div className="w-full items-center py-[15px] flex flex-col justify-center">
+          <button className="border-none font-[600] text-[14px] flex items-center gap-1 cursor-pointer rounded-[8px] py-[10px] px-[27px] shadow-xl bg-[var(--content)] text-[var(--detailcontent)]" onClick={handleShowMore}>
+            Show More <span><MdArrowDownward/></span>
           </button>
         </div>
       )}
@@ -112,3 +112,7 @@ function Home() {
 }
 
 export default Home;
+
+
+
+
