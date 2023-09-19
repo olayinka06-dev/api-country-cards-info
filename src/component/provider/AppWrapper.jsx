@@ -12,10 +12,16 @@ const AppWrapper = () => {
   const [toggle, setToggle] = useState(false);
   const [view, setview] = useState(false);
   const [page, setPage] = useState(1);
+  const [numberOfCountries] = useState(15);
+  const [preloader, setPreloader] = useState(true);
 
   useEffect(() => {
     setCountries(countryData);
   }, []);
+  
+  setTimeout(() => {
+    setPreloader(false)
+  }, 3000);
 
   const handleSearchInput = (e) => setSearchInput(e.target.value);
   const handleSelectInput = (e) => setSelectInput(e.target.value);
@@ -35,11 +41,29 @@ const AppWrapper = () => {
       top: 0,
       behavior: "smooth",
     });
-  }; // event handler for border country click
+  }; 
 
-  const handleShowMore = () => setPage(page + 1);
+  const lastIndexOf = numberOfCountries * page;
+  const firstIndexOf = lastIndexOf - numberOfCountries;
 
-  const displayedCountries = countries.slice(0, page * 15);
+  const handleShowMore = () => {
+    setPage(page + 1)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  const handShowLess = () => {
+    if (page > 1) {
+      setPage(page-1)
+    }
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
+  const displayedCountries = countries.slice(firstIndexOf, lastIndexOf);
 
   const handleToggleMode = () => {
     setIsDarkMode((prev) => !prev);
@@ -75,6 +99,7 @@ const AppWrapper = () => {
     handleShowMore,
     handleToggleMode,
     handleCloseButtonClick,
+    handShowLess,
     selectedCountry,
     isDarkMode,
     toggle,
@@ -83,6 +108,9 @@ const AppWrapper = () => {
     selectInput,
     searchInput,
     countries,
+    page,
+    preloader, 
+    setPreloader
   };
 
   return (
