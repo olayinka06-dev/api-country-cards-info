@@ -43,27 +43,17 @@ const AppWrapper = () => {
     });
   }; 
 
-  const lastIndexOf = numberOfCountries * page;
-  const firstIndexOf = lastIndexOf - numberOfCountries;
 
   const handleShowMore = () => {
     setPage(page + 1)
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
   };
   const handShowLess = () => {
     if (page > 1) {
       setPage(page-1)
     }
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
   }
 
-  const displayedCountries = countries.slice(firstIndexOf, lastIndexOf);
+  const displayedCountries = countries.slice(0, page * numberOfCountries);
 
   const handleToggleMode = () => {
     setIsDarkMode((prev) => !prev);
