@@ -7,7 +7,7 @@ export const ShowMore = () => {
   return (
     <div className="">
       <button
-        className="border-none font-[600] text-[14px] flex items-center gap-1 cursor-pointer rounded-[8px] py-[10px] px-[27px] shadow-xl bg-[var(--content)] text-[var(--detailcontent)]"
+        className="border-none scale-100 hover:scale-110 transition-all font-[600] text-[14px] flex items-center gap-1 cursor-pointer rounded-[8px] py-[10px] px-[27px] shadow-xl bg-[var(--content)] text-[var(--detailcontent)]"
         onClick={countriesData.handleShowMore}
       >
         Show More{" "}
@@ -23,7 +23,7 @@ export const ShowLess = () => {
   return (
     <div className="">
       <button
-        className="border-none font-[600] text-[14px] flex items-center gap-1 cursor-pointer rounded-[8px] py-[10px] px-[27px] shadow-xl bg-[var(--content)] text-[var(--detailcontent)]"
+        className="border-none scale-100 hover:scale-110 transition-all font-[600] text-[14px] flex items-center gap-1 cursor-pointer rounded-[8px] py-[10px] px-[27px] shadow-xl bg-[var(--content)] text-[var(--detailcontent)]"
         onClick={countriesData.handShowLess}
       >
         Show Less{" "}

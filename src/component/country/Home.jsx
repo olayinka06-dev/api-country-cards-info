@@ -4,9 +4,9 @@ import SearchInput from "./SearchInput";
 import CountryCards from "./CountryCards";
 import CountryDetails from "./CountryDetails";
 import ScrollToTop from "./ScrollToTop";
-import { useCoutryCardContext } from "./provider/Context";
-import { ShowLess, ShowMore } from "./entites/Entity";
-import Preloader from "./entites/Preloader";
+import { useCoutryCardContext } from "../provider/Context";
+import { ShowLess, ShowMore } from "../entites/Entity";
+import Preloader from "../entites/Preloader";
 
 function Home() {
   const { countriesData } = useCoutryCardContext();
@@ -23,7 +23,7 @@ function Home() {
           <Navigation />
           {countriesData.toggle ? "" : <SearchInput />}
           {countriesData.toggle ? <CountryDetails /> : <CountryCards />}
-          <div className="flex flex-row gap-2 items-center justify-center py-3">
+          <div className="flex flex-row gap-4 items-center justify-center py-3">
             {!countriesData.toggle &&
               countriesData.displayedCountries.length <
                 countriesData.countries.length && <ShowMore />}

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useCoutryCardContext } from "./provider/Context";
+import { useCoutryCardContext } from "../provider/Context";
 
 function CountryCards() {
   const { countriesData } = useCoutryCardContext();
@@ -15,17 +15,20 @@ function CountryCards() {
   }, []);
   return (
     <div className="w-full grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-[40px] gap-y-[50px] py-[30px] md:px-[40px] px-[30px] lg:px-[50px]">
-      {(!countriesData.preloader ? countriesData.displayedCountries : countriesData.countries).map((country) => (
+      {(!countriesData.preloader
+        ? countriesData.displayedCountries
+        : countriesData.countries
+      ).map((country) => (
         <div
           data-aos="fade-up"
           className="flex flex-col rounded-[20px] shadow-xl"
           key={country.alpha3Code}
           onClick={() => countriesData.handleCountryClick(country)}
         >
-          <div className="rounded-[20px]">
+          <div className="rounded-[20px] overflow-hidden relative">
             <img
               src={country.flags.png}
-              className="w-full h-[30vh] cursor-pointer rounded-t-[8px]"
+              className="w-full h-[30vh] object-cover scale-100 hover:scale-110 transition-transform duration-500 cursor-pointer rounded-t-[8px]"
               alt={country.flags.png}
             />
             <div className="w-full gap-[10px] flex flex-col p-[30px] rounded-b-[8px] bg-[var(--content)] text-[var(--contentcolor)]">

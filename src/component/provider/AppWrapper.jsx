@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CoutryCardContext } from "./Context";
 import App from "../../App";
-import countryData from "../AllData";
+import countryData from "../country/AllData";
 
 const AppWrapper = () => {
   const [countries, setCountries] = useState([]);

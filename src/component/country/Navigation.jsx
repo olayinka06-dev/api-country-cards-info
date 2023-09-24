@@ -1,6 +1,6 @@
 import React from "react";
 import { MdOutlineNightlight, MdOutlineLightMode } from "react-icons/md";
-import { useCoutryCardContext } from "./provider/Context";
+import { useCoutryCardContext } from "../provider/Context";
 
 function Navigation() {
   const { countriesData } = useCoutryCardContext();

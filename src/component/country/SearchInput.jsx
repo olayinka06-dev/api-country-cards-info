@@ -1,5 +1,5 @@
 import React from "react";
-import { useCoutryCardContext } from "./provider/Context";
+import { useCoutryCardContext } from "../provider/Context";
 
 function SearchInput() {
   const {countriesData} = useCoutryCardContext();

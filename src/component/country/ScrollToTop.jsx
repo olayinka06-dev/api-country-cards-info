@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MdArrowUpward } from "react-icons/md";
+import styled from "styled-components";
 
 const ScrollToTop = () => {
   const [showArrow, setShowArrow] = useState(false);
@@ -31,7 +32,7 @@ const ScrollToTop = () => {
   };
   return (
     <div className="">
-      <span
+      <ScrollUp
         className="backup p-[15px] fixed bottom-[5%] right-[4%] cursor-pointer"
         style={{
           visibility: `${showArrow ? "visible" : "hidden"}`,
@@ -40,28 +41,26 @@ const ScrollToTop = () => {
         onClick={handleScrollUp}
       >
         <MdArrowUpward className="text-[20px] text-[var(--contentcolor)]" />
-      </span>
-      <style jsx="true">{`
-            .backup{
-            animation: scroll-up 4s linear infinite;
-            transition: all 1s ease;
-          
-            
-            }
-          
-            @keyframes scroll-up {
-              0% {
-                transform: translateY(20px);
-              }
-              50% {
-                transform: translateY(0px);
-              }
-              100% {
-                transform: translateY(20px);
-              }
-        `}</style>
+      </ScrollUp>
     </div>
   );
 };
+
+const ScrollUp = styled.span`
+  animation: scroll-up 4s linear infinite;
+  transition: all 1s ease;
+
+  @keyframes scroll-up {
+    0% {
+      transform: translateY(20px);
+    }
+    50% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(20px);
+    }
+  }
+`;
 
 export default ScrollToTop;

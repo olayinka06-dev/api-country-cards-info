@@ -3,11 +3,11 @@ import countryData from "./AllData";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { MdArrowBack } from "react-icons/md";
-import { useCoutryCardContext } from "./provider/Context";
+import { useCoutryCardContext } from "../provider/Context";
 
 function CountryDetails() {
   const { countriesData } = useCoutryCardContext();
-  
+
   useEffect(() => {
     AOS.init({
       duration: 1500,
@@ -25,9 +25,9 @@ function CountryDetails() {
       <div
         className={`bg-[var(--mainbody)] min-h-screen w-full flex flex-col items-center justify-center gap-[40px] overflow-x-hidden py-[20px] px-[20px] md:px-[80px]`}
       >
-        <div className="w-full flex flex-col items-start justify-start">
+        <div data-aos="fade-down" className="w-full flex flex-col items-start justify-start">
           <button
-            className="bg-[var(--content)] flex items-center gap-1 text-[var(--contentcolor)] px-[25px] py-[10px] shadow-xl"
+            className="bg-[var(--content)] rounded-xl scale-100 hover:scale-110 transition-all flex items-center gap-1 text-[var(--contentcolor)] px-[25px] py-[10px] shadow-xl"
             onClick={countriesData.handleCloseButtonClick}
           >
             <span>
@@ -48,7 +48,9 @@ function CountryDetails() {
             data-aos="fade-right"
             className="w-full md:w-1/2 flex flex-col gap-[10px]"
           >
-            <h3 className="text-[var(--contentcolor)]">{countriesData.selectedCountry.name}</h3>
+            <h3 className="text-[var(--contentcolor)]">
+              {countriesData.selectedCountry.name}
+            </h3>
             <div className="w-full flex flex-col md:flex-row gap-[30px] text-[var(--detailcontent)]">
               <div className="w-full flex flex-col gap-[10px]">
                 <p>
@@ -56,7 +58,8 @@ function CountryDetails() {
                   {countriesData.selectedCountry.nativeName}
                 </p>
                 <p>
-                  <span>Population:</span> {countriesData.selectedCountry.population}
+                  <span>Population:</span>{" "}
+                  {countriesData.selectedCountry.population}
                 </p>
                 <p>
                   <span>Region:</span> {countriesData.selectedCountry.region}
@@ -80,7 +83,19 @@ function CountryDetails() {
                 </p>
                 <p>
                   <span>Languages: </span>
-                  {countriesData.selectedCountry.languages.map((l) => l.name + " ")}
+                  {countriesData.selectedCountry.languages.map(
+                    (l) => l.name + " "
+                  )}
+                </p>
+                <p>
+                  <span>Time Zone: </span>
+                  {countriesData.selectedCountry.timezones.map((l) => l + " ")}
+                </p>
+                <p>
+                  <span>Lat & Lon: </span>
+                  {countriesData.selectedCountry.latlng.map(
+                    (l) => l + +"  " + " , "
+                  )}
                 </p>
               </div>
             </div>
@@ -97,7 +112,11 @@ function CountryDetails() {
                     return (
                       <button
                         key={borderCountry.alpha3Code}
-                        onClick={() => countriesData.handleChangeCountryDetails(borderCountry)}
+                        onClick={() =>
+                          countriesData.handleChangeCountryDetails(
+                            borderCountry
+                          )
+                        }
                         className="text-[var(--detailcontent)] bg-[var(--content)] py-[10px] px-[7px] rounded-[8px] cursor-pointer text-[13px] font-[600] w-full shadow-xl"
                       >
                         {borderCountry.name}
