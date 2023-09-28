@@ -21,7 +21,7 @@ const AppWrapper = () => {
   
   setTimeout(() => {
     setPreloader(false)
-  }, 3000);
+  }, 5000);
 
   const handleSearchInput = (e) => setSearchInput(e.target.value);
   const handleSelectInput = (e) => setSelectInput(e.target.value);

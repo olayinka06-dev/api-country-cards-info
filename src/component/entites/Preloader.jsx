@@ -63,7 +63,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    animation: progress 3s ease-in-out forwards;
+    animation: progress 5s ease-in-out forwards;
   }
   
   @keyframes progress {
