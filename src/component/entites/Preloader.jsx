@@ -37,7 +37,7 @@ const Wrapper = styled.div`
   }
   
   .preloader-logo img {
-    width: 100px;
+    width: 80px;
     border-radius: 50%;
     height: auto;
     animation: loadlogo 1s linear infinite;
