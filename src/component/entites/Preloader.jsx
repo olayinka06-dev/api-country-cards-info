@@ -14,7 +14,7 @@ const Preloader = () => {
         </div>
       </div>
       <footer style={{width: "100%", display: "flex", alignItems: "center", justifyContent: "center", position: "absolute", bottom: "3%"}}>
-        <span style={{color: "blue"}}>Coded and Designed By <a style={{color: "red"}} href="https://olayinka-dev-portfolio.netlify.app">Olayinka_Dev</a></span>
+        <span style={{color: "blue"}}>Coded and Designed By <a style={{color: "red"}} href="">Olayinka_Dev</a></span>
       </footer>
     </Wrapper>
   )
